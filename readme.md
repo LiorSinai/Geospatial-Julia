@@ -80,3 +80,5 @@ Department of Geography and Geosciences, University of Louisville; Departement d
 de Namur) and Center for International Earth Science Information Network (CIESIN), Columbia University
 (2018). Global High Resolution Population Denominators Project - Funded by The Bill and Melinda Gates
 Foundation (OPP1134076). https://dx.doi.org/10.5258/SOTON/WP00675
+
+World.tif raster from https://github.com/yeesian/ArchGDALDatasets/.

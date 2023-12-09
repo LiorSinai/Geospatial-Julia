@@ -27,5 +27,5 @@ Manifest.toml
 .ipynb_checkpoints
 
 # Project specific
-data/
+data/*
 !data/world.tif
