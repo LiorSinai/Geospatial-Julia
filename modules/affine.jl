@@ -13,10 +13,7 @@ struct AffineTransform{T}
     matrix::Matrix{T}
 end
 
-function show(io::IO, mime::MIME"text/plain", a::AffineTransform)
-    println(io, "AffineTransform with matrix:")
-    show(io, mime, a.matrix)
-end
+inv(a::AffineTransform) = AffineTransform(inv(a.matrix))
 
 function (a::AffineTransform)(coordinate::Tuple{T, T}) where T
     x, y = coordinate
@@ -41,8 +38,6 @@ function affine_translation(Δx::T, Δy::T) where T
     AffineTransform{T}(A)
 end
 
-inv(a::AffineTransform) = AffineTransform(inv(a.matrix))
-
 function affine_scale(sx::T, sy::T) where T
     A = [
         sx 0  0;
@@ -52,6 +47,10 @@ function affine_scale(sx::T, sy::T) where T
     AffineTransform{T}(A)
 end
 
+function show(io::IO, mime::MIME"text/plain", a::AffineTransform)
+    println(io, "AffineTransform with matrix:")
+    show(io, mime, a.matrix)
+end
 
 """
     affine_from_bounds(west, south, east, north, width, height)
@@ -68,7 +67,7 @@ function affine_from_bounds(
     AffineTransform{T}(A1.matrix * A2.matrix)
 end
 
-function affine_from_raster(raster)
+function affine_from_raster(raster::Raster)
     long_min, long_max = extrema(raster.dims[1])
     lat_min, lat_max = extrema(raster.dims[2])
     width, height = size(raster)
