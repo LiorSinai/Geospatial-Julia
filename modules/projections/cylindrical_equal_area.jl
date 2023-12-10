@@ -5,6 +5,8 @@
 Projection from a sphere which preserves area.
 It has large distortion near the poles.
 
+It is used for calculating areas.
+
 The equations satisfy:
 ```math
     x = k*r*(λ-λ_0)

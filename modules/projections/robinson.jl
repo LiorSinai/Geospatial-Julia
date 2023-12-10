@@ -4,14 +4,14 @@
 
 Artistic projection of the entire sphere. 
 
+It is used for visually appealing maps of the whole earth.
+
 The equations satisfy:
 ```math
-    x = k*r* 0.8487*(λ-λ_0)*X(|ϕ|)
+    x = k*r*0.8487*(λ-λ_0)*X(|ϕ|)
     y = sign(ϕ)*k*r*1.3523*Y(|ϕ|)
 ```
-
 where ``X(ϕ)`` and ``Y(ϕ)`` are interpolatd from a table.
-
 
 Inputs should be in degrees:
 ```

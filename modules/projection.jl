@@ -5,7 +5,7 @@ using Revise
 """
     AbstractProjection
 
-An abstract projection. It should implement the following methods:
+An abstract projection. Subtypes should implement the following methods:
 
 ```
 project(proj, coordinate::Tuple; options...) → Tuple

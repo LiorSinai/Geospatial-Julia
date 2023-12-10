@@ -4,6 +4,8 @@
 
 Projection from a sphere  which corrects distortion along the longitude `long0` at the expense of large distortion away from it.
 
+It is used to correct local distortion in small regions within 15° of `long0`.
+
 The equations satisfy:
 ```math
     t = sin(λ-λ_0)cos(ϕ)

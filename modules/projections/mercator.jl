@@ -4,6 +4,10 @@
 
 Conformal projection from a sphere which preserves shape but creates large distortion near the poles. 
 
+It is used for navigation where conformality is of the utmost importance.
+It should not be used for purely visual applications because of the large distortions.
+Instead it is strongly recommended to use the `Robinson` projection for global maps and the `TransverseMercator` projection for small local regions.
+
 The equations satisfy:
 ```math
     x = k*r*(λ-λ_0)

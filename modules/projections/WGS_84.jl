@@ -5,7 +5,9 @@ Reference: https://earth-info.nga.mil/?dir=wgs84&action=wgs84.
 
 An ellipsoid with semi major axis ``a`` and flattening ``f=(a-b)/a``.
 
-This projection acts as an identity projection:
+This projection acts as an identity projection.
+
+Example:
 ```
 proj = WorldGeodeticSystem84()
 coords_src = (20.0f0, 30.0f0) # (longitude, latitude) degrees

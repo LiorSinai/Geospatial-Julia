@@ -60,7 +60,7 @@ Evaluates the Lagrange polynomial through (node, value) pairs at point `x`.
 
 The Lagrange polynomial is the unique polynomial of lowest degree that intersects all data points.
 
-The values near the boundaries are not guaranteed to be smooth.
+Values near the boundaries are not guaranteed to be smooth.
 
 Sources:
 - https://mathworld.wolfram.com/LagrangeInterpolatingPolynomial.html
@@ -86,7 +86,7 @@ end
 
 Evaluates the Lagrange polynomial at point `x`.
 
-The values near the boundaries are not guaranteed to be smooth.
+Values near the boundaries are not guaranteed to be smooth.
 
 Sources:
 - https://mathworld.wolfram.com/NevillesAlgorithm.html
@@ -133,7 +133,9 @@ end
 function CubicSpline(xs::AbstractVector{T}, ys::AbstractVector{T}) where T
     @assert length(xs) == length(ys)
     n = length(xs)
-    hs = xs[2:n] - xs[1:(n - 1)]
+    col = 1:(n-1)
+    col_next = 2:n 
+    hs = xs[col_next] - xs[col]
     A = zeros(T, n, n)
     b = zeros(T, n)
     A[1, 1] = 1
@@ -146,8 +148,6 @@ function CubicSpline(xs::AbstractVector{T}, ys::AbstractVector{T}) where T
     end
     c = A \ b
     coefficients = zeros(T, 4, n - 1)
-    col = 1:(n-1)
-    col_next = 2:n 
     coefficients[1, :] = ys[col]
     coefficients[2, :] = (ys[col_next] - ys[col]) ./ hs[col] - hs[col] / 3 .* (2 * c[col] + c[col_next])
     coefficients[3, :] = c[col]

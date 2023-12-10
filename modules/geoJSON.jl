@@ -78,7 +78,7 @@ end
     bounds(multipolygon)
     bounds(polygon)
 
-Return rectangular bounds for a GeoJSON as `(xmin, ymin, xmax, ymax)`.
+Return rectangular bounds for a GeoJSON object as `(xmin, ymin, xmax, ymax)`.
 """
 function bounds(shape_data::GeoJSON.FeatureCollection)
     xmin, xmax, ymin, ymax = bounds(shape_data.features[1].geometry)
