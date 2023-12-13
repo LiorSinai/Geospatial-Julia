@@ -68,8 +68,8 @@ function affine_from_bounds(
 end
 
 function affine_from_raster(raster::Raster)
-    long_min, long_max = extrema(raster.dims[1])
-    lat_min, lat_max = extrema(raster.dims[2])
+    x_min, x_max = extrema(raster.dims[1])
+    y_min, y_max = extrema(raster.dims[2])
     width, height = size(raster)
-    affine_from_bounds(long_min, lat_min, long_max, lat_max, width, height)
+    affine_from_bounds(x_min, y_min, x_max, y_max, width, height)
 end
