@@ -16,7 +16,7 @@ function reproject end
 function reproject(coordinates::Vector{<:Tuple}, src_crs, dest_crs; options...)
     inv_src_crs = inv(src_crs)
     long_lats = [inv_src_crs(xy) for xy in coordinates]
-    [dest_crs(coord; options...) for coord in long_lats]
+    map(coord -> dest_crs(coord; options...), long_lats)
 end
 
 function reproject(polygon::GeoJSON.Polygon{D, T}, src_crs, dest_crs; options...) where {D, T}
