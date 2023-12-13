@@ -57,9 +57,7 @@ SEMI_MINOR_AXIS_WGS_84 = SEMI_MAJOR_AXIS_WGS_84 * (1 - 1/INV_FLATTENING_WGS_84)
 MEAN_RADIUS_WGS_84 = (2 * SEMI_MAJOR_AXIS_WGS_84 + SEMI_MINOR_AXIS_WGS_84) / 3
 AUTHALIC_RADIUS_WGS_84 = 6_371_007.2f0 # radius of sphere with same surface area as ellipsoid
 
-include("interpolation.jl")
 include("projections\\WGS_84.jl")
 include("projections\\cylindrical_equal_area.jl")
 include("projections\\mercator.jl")
-include("projections\\robinson.jl")
 include("projections\\transverse_mercator.jl")

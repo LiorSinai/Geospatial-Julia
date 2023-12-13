@@ -32,7 +32,6 @@ In the future I would like to add the ellipsoidal versions too and make those th
 Supported projections:
 - Cylindrical equal area (spherical)
 - Mercator (spherical)
-- Robinson
 - Transverse mercator (spherical)
 
 ## Correcting distortions

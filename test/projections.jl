@@ -63,22 +63,6 @@ end
     @test all(coords_back .≈ (0.0, 90.00000500895634))
 end
 
-@testset "Robinson" begin
-    proj = Robinson(1.0f0, 0.0f0, 1.0f0, CubicSpline())
-    coords_src = (20.0f0, 30.0f0) # degrees
-    coords_dest = proj(coords_src)
-    @test coords_dest == (0.28440211575222013, 0.5030556)
-
-    proj = Robinson(1.0, 0.0, 1.0, LinearInterpolater())
-    coords_dest = proj(coords_src)
-    @test coords_dest ==  (0.28440209974417663, 0.5030556)
-
-    proj_inv = inv(proj)
-    coords_back = proj_inv(coords_dest) 
-    @test coords_back ==  coords_src
-end
-
-
 @testset "transverse Mercator - r=1" begin
     proj = TransverseMercator(1.0f0, 0.0f0, 1.0f0)
     coords_src = (20.0f0, 30.0f0) # degrees
